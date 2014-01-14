@@ -1,4 +1,12 @@
-posts/*
-cache/*
+posts/*.md
+posts/*.jpg
+posts/*.png
+
+cache/*.png
+cache/*.jpeg
+cache/*.jpg
+
 config.php
 
+.DS_Store
+.htaccess
