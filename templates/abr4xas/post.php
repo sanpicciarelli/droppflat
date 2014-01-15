@@ -9,7 +9,7 @@
 
 <section class="<?php echo($post_status); ?>">
     <h1><?php echo($post_title); ?></h1>
-    <p>Written by <?php echo($post_author); ?> @ <a href="<?php echo($post_category_link); ?>"><?php echo($post_category); ?></a></p>
+    <p>written by <?php echo($post_author); ?>, tagged in <a href="<?php echo($post_category_link); ?>"><?php echo($post_category); ?></a></p>
 	<?php echo($post_content); ?>
 
     
