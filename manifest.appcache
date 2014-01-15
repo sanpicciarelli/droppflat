@@ -1,0 +1,10 @@
+CACHE MANIFEST
+# 2010-06-18:v2
+
+# Explicitly cached 'master entries'.
+CACHE:
+favicon.ico
+index.php
+templates/abr4xas/stylesheets/screen.css
+templates/abr4xas/stylesheets/fonts.css
+logo.png
