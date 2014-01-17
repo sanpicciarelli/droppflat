@@ -13,14 +13,11 @@
 	<?php echo($post_content); ?>
 
     
-    
-    
-<a class="button button-small" href="<?php echo($blog_url); ?>">
-      Back to home
-</a>
-    
+    <br>
+    <!-- Place this tag where you want the +1 button to render. -->
+    <div class="g-plusone"></div>
+    <div class="fb-follow" data-href="https://www.facebook.com/ElBlogDeAbr4xas" data-colorscheme="light" data-layout="button_count" data-show-faces="false"></div>
 </section>
-
 <section>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <!-- bloio -->
@@ -33,6 +30,14 @@
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
 </section>
+    <section class="blank">
+        <nav class="navigation">
+            <ul class="pagination">
+                <li class="active"><a href="<?php echo($blog_url); ?>"> <i class="icon-large icon-angle-left"></i> <span class="sr-only"> Back to home</span></a></li>
+             </ul>
+                <br class="clear">
+        </nav>
+    </section> 
 <section>
  <div id="disqus_thread"></div>
     <script type="text/javascript">
@@ -41,7 +46,7 @@
             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-        })();
+        })();     
     </script>
     <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>

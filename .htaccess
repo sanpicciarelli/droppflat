@@ -8,3 +8,5 @@ RewriteBase /
 RewriteCond %{REQUEST_URI} !index\.php
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.*)$ index.php?filename=$1 [NC,QSA,L]
+# CACHE
+AddType text/cache-manifest .appcache

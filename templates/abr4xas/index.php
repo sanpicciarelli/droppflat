@@ -5,9 +5,6 @@
 	<title><?php echo($page_title); ?> | El blog de abr4xas</title>
     <meta name="author" content="ángel cruz" />
     <?php echo($page_meta); ?>
-    <meta itemprop="name" content="El blog de abr4xas vol 3.0">
-    <meta itemprop="description" content="abr4xas.org - El blog de abr4xas donde se habla de: programación, linux, software, hardware, cine, música, anime, cine, Firefox OS, diseño de páginas web, diseño de portales web, diseño de comercio electrónico, mercadeo en linea, eMarketing, redes sociales, registro de dominios, hosting, eCommerce">
-    <meta itemprop="image" content="http://abr4xas.org/logo.png">
 	<meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
     <link rel="author" href="https://plus.google.com/+ángelcruzj"/>
 	<link rel="stylesheet" href="<?php echo($template_dir_url); ?>stylesheets/screen.css">
@@ -28,6 +25,7 @@
 </head>
 
 <body>
+    <div id="fb-root"></div>
 	<section class="blank"></section>
 	<section class="blank">
 	<?php if ($is_home){ ?>
@@ -40,6 +38,7 @@
 		</div>
 		<?php } ?>	
 	</section>    
+  
 <?php if($is_home) { ?>
 
 <?php 
@@ -56,21 +55,12 @@
     </section>
 <?php   }else{	?>
 	<section class="blank">
-		<div class="item-featured">
-			<div class="item-info">
-				<h1>Actualmente no hay alguna promo activa <i class="fa fa-frown-o"></i></h1>
-			</div>
-			<br class="clear">
+		 <div class="flash error">
+				<h1 style="text-align: center;">You should follow me on: <a href="http://twitter.com/abr4xas" target="_blank"><i class="fa fa-twitter"></i></a> <a href="http://github.com/abr4xas" target="_blank"><i class="fa fa-github-alt"></i></a> <a href="<?php echo BLOG_URL; ?>rss" target="_blank"><i class="fa fa-rss"></i></a> <a href="https://plus.google.com/+%C3%A1br4xasOrg" target="_blank" rel="publisher"><i class="fa fa-google-plus"></i></a></h1>
 		</div>
 	</section>
-	<?php } ?>
-        <section class="blank">
-                <div class="flash success">
-                        <h1><a href="#published"><i class="fa fa-arrow-circle-down"></i></a></h1>
-                        <p>Latest post...</p>
-                </div>
-        </section>	
-        <?php } ?>
+	<?php } ?>	
+        <?php } // este es del is_home?>
         
         <?php echo($content); ?>
     
@@ -87,6 +77,24 @@
 	  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 	  ga('create', 'UA-18333188-1', 'abr4xas.org');
 	  ga('send', 'pageview');
-	</script>           
+        
+        // +1 button tag
+      (function() {
+        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+        po.src = 'https://apis.google.com/js/platform.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+      })();   
+        // fb button
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));        
+	</script>    
+
+    
+    
 </body>
 </html>
