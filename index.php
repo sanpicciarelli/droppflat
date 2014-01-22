@@ -79,10 +79,10 @@ if ($filename==NULL) {
         foreach($posts as $post) {
 
             // Get the post title.
-            $post_title = str_replace(array("\n",'<h1>','</h1>'), '', $post['post_title']);
+            $post_title = str_replace(array("\n",'<h1>','</h1>'), '', utf8_decode($post['post_title']));
 
             // Get the post author.
-            $post_author = $post['post_author'];
+            $post_author = utf8_decode($post['post_author']);
 
             // Get the post author twitter id.
             // $post_author_twitter = $post['post_author_twitter'];
@@ -103,10 +103,10 @@ if ($filename==NULL) {
             $post_status = $post['post_status'];
 
             // Get the post intro.
-            $post_intro = $post['post_intro'];
+            $post_intro = utf8_decode($post['post_intro']);
 
             // Get the post content
-            $post_content = $post['post_content'];
+            $post_content = utf8_decode($post['post_content']);
 
             // Get the post link.
             if ($category) {
@@ -135,9 +135,9 @@ if ($filename==NULL) {
         $get_page_meta[] = '<meta name="twitter:card" content="summary">';
         $get_page_meta[] = '<meta name="twitter:site" content="' . $blog_twitter . '">';
         $get_page_meta[] = '<meta name="twitter:title" content="' . $blog_title . '">';
-        $get_page_meta[] = '<meta name="twitter:description" content="' . $meta_description . '">';
-        $get_page_meta[] = '<meta name="twitter:creator" content="' . $blog_twitter . '">';
-        $get_page_meta[] = '<meta name="twitter:image:src" content="' . $blog_image . '">';
+        $get_page_meta[] = '<meta name="twitter:description" content="abr4xas.org - El blog de abr4xas donde se habla de: programación, linux, software, hardware, cine, música, anime, cine, Firefox OS, diseño de páginas web, diseño de portales web, diseño de comercio electrónico, mercadeo en linea, eMarketing, redes sociales, registro de dominios, hosting, eCommerce">';
+        $get_page_meta[] = '<meta name="twitter:creator" content="@abr4xas">';
+        $get_page_meta[] = '<meta name="twitter:image:src" content="http://abr4xas.org/logo.png">';
         $get_page_meta[] = '<meta name="twitter:domain" content="' . $blog_url . '">';
 
         // Get the Open Graph tags.
@@ -304,7 +304,7 @@ else {
     } else if (file_exists($cachefile)) {
 
         // Define site title
-        $page_title = str_replace('# ', '', $fcontents[0]);
+        $page_title = str_replace('# ', '', utf8_decode($fcontents[0]));
 
         // Get the cached post.
         include $cachefile;
@@ -316,7 +316,7 @@ else {
 
         // Get the post title.
         $post_title = Markdown($fcontents[0]);
-        $post_title = str_replace(array("\n",'<h1>','</h1>'), '', $post_title);
+        $post_title = str_replace(array("\n",'<h1>','</h1>'), '', utf8_decode($post_title));
 
         // Get the post intro.
         $post_intro = htmlspecialchars(trim($fcontents[7]));
@@ -358,36 +358,35 @@ else {
         // Get the site title.
         $page_title = trim(str_replace('# ', '', $fcontents[0]));
 
-        // Generate the page description and author meta.
-        $get_page_meta[] = '<meta name="description" content="' . $post_intro . '">';
+    // Generate the page description and author meta.
+        $get_page_meta[] = '<meta name="description" content="' . utf8_decode($post_intro) . '">';
         $get_page_meta[] = '<meta name="author" content="' . $post_author . '">';
-
-        // Generate the Twitter card.
+    // Generate the Twitter card.
         $get_page_meta[] = '<meta name="twitter:card" content="summary">';
         $get_page_meta[] = '<meta name="twitter:site" content="' . $blog_twitter . '">';
-        $get_page_meta[] = '<meta name="twitter:title" content="' . $page_title . '">';
-        $get_page_meta[] = '<meta name="twitter:description" content="' . $post_intro  . '">';
-        $get_page_meta[] = '<meta name="twitter:creator" content="@' . $post_author_twitter . '">';
+        $get_page_meta[] = '<meta name="twitter:title" content="' . utf8_decode($page_title) . '">';
+        $get_page_meta[] = '<meta name="twitter:description" content="'.utf8_decode($post_intro).'">';
+        $get_page_meta[] = '<meta name="twitter:creator" content="@abr4xas">';
         $get_page_meta[] = '<meta name="twitter:image:src" content="http://abr4xas.org/logo.png">';
         $get_page_meta[] = '<meta name="twitter:domain" content="' . $blog_url . '">';
-        // Get the Open Graph tags.
-        $get_page_meta[] = '<meta property="og:title" content="' . $blog_title . '">';
+    // Get the Open Graph tags.
+        $get_page_meta[] = '<meta property="og:title" content="' . utf8_decode($blog_title) . '">';
         $get_page_meta[] = '<meta property="og:type" content="article">';
-        $get_page_meta[] = '<meta property="og:title" content="' . $page_title . '">';
-        $get_page_meta[] = '<meta property="og:site_name" content="' . $page_title . '">';
+        $get_page_meta[] = '<meta property="og:title" content="' . utf8_decode($page_title) . '">';
+        $get_page_meta[] = '<meta property="og:site_name" content="' . utf8_decode($page_title) . '">';
         $get_page_meta[] = '<meta property="og:url" content="' .$post_link  . '">';
-        $get_page_meta[] = '<meta property="og:image" content="'.$post_image.'">';
+        $get_page_meta[] = '<meta property="og:image" content="http://abr4xas.org/logo.png">';
         $get_page_meta[] = '<meta property="og:image:type" content="image/png">';
         $get_page_meta[] = '<meta property="og:image:width" content="300">';
         $get_page_meta[] = '<meta property="og:image:height" content="300">'; 
-        $get_page_meta[] = '<meta property="og:description" content="' . $post_intro . '">';        
+        $get_page_meta[] = '<meta property="og:description" content="' . utf8_decode($post_intro) . '">';        
         $get_page_meta[] = '<meta name="application-name" content="abr4xas.org - El blog de abr4xas donde se habla de: programación, linux, software, hardware, cine, música, anime, cine, Firefox OS, diseño de páginas web, diseño de portales web, diseño de comercio electrónico, mercadeo en linea, eMarketing, redes sociales, registro de dominios, hosting, eCommerce" />';
         $get_page_meta[] = '<meta name="msapplication-starturl" content="http://abr4xas.org" />';
         $get_page_meta[] = '<meta name="msapplication-tooltip" content="El blog de abr4xas" />';
         $get_page_meta[] = '<meta name="msapplication-window" content="width=1024;height=768"/>';
         $get_page_meta[] = '<meta name="msapplication-task" content="name=El blog de abr4xas;action-uri=http://abr4xas.org;icon-uri=http://abr4xas.or/gfavicon.ico" />';
-        $get_page_meta[] = '<meta itemprop="name" content="' . $page_title. '">';
-        $get_page_meta[] = '<meta itemprop="description" content="' . $post_intro. '">';
+        $get_page_meta[] = '<meta itemprop="name" content="' . utf8_decode($page_title). '">';
+        $get_page_meta[] = '<meta itemprop="description" content="' . utf8_decode($post_intro). '">';
         $get_page_meta[] = '<meta itemprop="image" content="">';
 
 
